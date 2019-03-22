@@ -17,21 +17,21 @@ use yii\web\UploadedFile;
 /**
  * OperationController implements the CRUD actions for Operation model.
  */
-class OperationController extends Controller
+class OperationController extends AdminController
 {
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
-        return [
+        return array_merge(parent::behaviors(), [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
-        ];
+        ]);
     }
 
     /**
